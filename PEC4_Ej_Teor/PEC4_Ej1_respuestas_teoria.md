@@ -34,5 +34,3 @@
     ```bash
     ng lint
     ```
-
-**Conclusió**: Angular CLI és una eina essencial per gestionar projectes Angular, ja que simplifica la creació, configuració i execució d’aplicacions.
