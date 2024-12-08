@@ -1,15 +1,15 @@
-<div class="article" 
-     [ngClass]="{'selected': article.selected}" 
-     (click)="onSelect()">
-  <img [src]="article.imageUrl" alt="{{ article.name }}" />
-  <h2>{{ article.name }}</h2>
-  <p><strong>Preu:</strong> {{ article.price }} €</p>
-  <p *ngIf="article.isOnSale" class="on-sale">Aquest article està en venda!</p>
-  <p><strong>Quantitat:</strong> {{ article.quantityInCart }}</p>
-  <div>
-    <button (click)="incrementQuantity()">Incrementar</button>
-    <button (click)="decrementQuantity()" [disabled]="article.quantityInCart === 0">
-      Decrementar
-    </button>
+<div
+  class="article-card"
+  [ngClass]="{ 'on-sale': article.isOnSale, 'selected': article.selected }"
+  (click)="selectArticle()"
+>
+  <img [src]="article.imageUrl" [alt]="article.name" />
+  <h3>{{ article.name }}</h3>
+  <p>{{ article.price }} €</p>
+  <p *ngIf="article.isOnSale" class="on-sale-text">En venda!</p>
+  <div class="quantity-controls">
+    <button (click)="decrementQuantity()" [disabled]="article.quantityInCart === 0">-</button>
+    <span>{{ article.quantityInCart }}</span>
+    <button (click)="incrementQuantity()" [disabled]="!article.isOnSale">+</button>
   </div>
 </div>

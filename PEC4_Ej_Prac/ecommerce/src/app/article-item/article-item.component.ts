@@ -7,22 +7,24 @@ export interface Article {
   price: number;
   isOnSale: boolean;
   quantityInCart: number;
-  selected: boolean;
+  selected?: boolean;
 }
 
 @Component({
   selector: 'app-article-item',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule], // <-- Importem CommonModule aquí
   templateUrl: './article-item.component.html',
   styleUrls: ['./article-item.component.css']
 })
 export class ArticleItemComponent {
   @Input() article!: Article;
-  @Output() select = new EventEmitter<Article>();
+  @Output() select = new EventEmitter<void>();
 
   incrementQuantity(): void {
-    this.article.quantityInCart++;
+    if (this.article.isOnSale) {
+      this.article.quantityInCart++;
+    }
   }
 
   decrementQuantity(): void {
@@ -31,7 +33,7 @@ export class ArticleItemComponent {
     }
   }
 
-  onSelect(): void {
-    this.select.emit(this.article);
+  selectArticle(): void {
+    this.select.emit();
   }
 }
