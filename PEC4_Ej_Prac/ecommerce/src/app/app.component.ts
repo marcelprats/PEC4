@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'ecommerce';
   articles = [
     {
-      name: 'Guitarra Elèctrica',
+      name: 'Guitarra',
       imageUrl: 'https://st2.depositphotos.com/1020091/12531/v/950/depositphotos_125310552-stock-illustration-electric-guitar-icon.jpg',
       price: 150,
       isOnSale: true,
@@ -21,7 +21,7 @@ export class AppComponent {
       selected: false,
     },
     {
-      name: 'Micròfon Retro',
+      name: 'Micròfon',
       imageUrl: 'https://media.istockphoto.com/id/1298266863/es/vector/signo-vectorial-de-micr%C3%B3fono-retro.jpg?s=612x612&w=0&k=20&c=EwH1qLk3kIpBvCDXEni4xQ3X9yd5xEi30WOaUBacUNc=',
       price: 80,
       isOnSale: false,
